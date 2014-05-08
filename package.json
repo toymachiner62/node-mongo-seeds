@@ -1,6 +1,6 @@
 {
   "name": "node-mongo-seeds",
-  "version": "1.0.3",
+  "version": "1.0.7",
   "description": "A tool to populate a mongo db from json files",
   "repository": {
     "type": "git",
@@ -16,10 +16,14 @@
     "optimist": "^0.6.1",
     "monk": "*"
   },
-  "main": "seed.js",
-  "scripts": {
-    "seed": "node seed",
-    "test": "echo \"Error: no test specified\" && exit 1"
+  "main": "bin/seed",
+  "bin": {
+    "seed": "bin/seed"
   },
+  "scripts": {
+    "setup": "node bin/create_config_file",
+    "seed": "node bin/seed -d localhost/ease-dev"
+  },
+  "preferGlobal": "true",
   "license": "MIT"
 }

@@ -1,4 +1,4 @@
-#!/usr/bin/env node
+#!/usr/local/bin/env node
 
 /**
  * This script inserts into mongo the contents of all the .json files in the /seeds directory.
@@ -13,15 +13,20 @@
  * @author Tom Caflisch
  */
 
+/*
 var optimist = require('optimist');
 var argv = optimist
     .usage('Populate mongo from a set of .json files. \n Usage: $ node seed')
     .describe('d', 'The path to your mongo db')
     .demand(['d'])
     .argv;
+*/
 var monk = require('monk');
-var dir = './seeds';
-var db = monk('mongodb://'+argv.d);
+// TODO - Somehow get the calling app root path, rather than doing ../../
+var parsedJSON = require(process.cwd()+"/../../seed.json");
+// TODO - Somehow get the calling app root path, rather than doing ../../
+var dir = process.cwd()+'/../../seeds';
+var db = monk('mongodb://'+parsedJSON.db);
 var fs = require('fs'); // Used to get all the files in a directory
 var count = 0;  // Counter variable used to call the callback after all the mongo inserts have completed
 
