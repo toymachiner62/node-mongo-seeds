@@ -1,6 +1,6 @@
 {
   "name": "node-mongo-seeds",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "description": "A tool to populate a mongo db from json files",
   "repository": {
     "type": "git",
@@ -22,7 +22,7 @@
   },
   "scripts": {
     "setup": "node bin/create_config_file",
-    "seed": "node bin/seed -d localhost/ease-dev"
+    "seed": "node bin/seed"
   },
   "preferGlobal": "true",
   "license": "MIT"
