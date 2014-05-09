@@ -21,14 +21,19 @@ var argv = optimist
     .demand(['d'])
     .argv;
 */
+
 var monk = require('monk');
 // TODO - Somehow get the calling app root path, rather than doing ../../
 var parsedJSON = require(process.cwd()+"/../../seed.json");
 // TODO - Somehow get the calling app root path, rather than doing ../../
+
+
 var dir = process.cwd()+'/../../seeds';
 var db = monk('mongodb://'+parsedJSON.db);
 var fs = require('fs'); // Used to get all the files in a directory
 var count = 0;  // Counter variable used to call the callback after all the mongo inserts have completed
+
+console.log('dir = '+dir);
 
 // Read all the files in the ./seeds folder
 var list = fs.readdirSync(dir);
@@ -60,15 +65,15 @@ function seed_db(list, callback) {
     count += parsedJSON.length;
 
     // Loop through all the objects in the current .json file
-    for (var i = 0; i < parsedJSON.length; i++) {
+    parsedJSON.forEach(function(current_object) {
 
       var collection = db.get(collection_name);
 
       // Remove all records in the collection
-      collection.remove({}, function() {
+      collection.remove({}, function () {
 
         // Insert records into the collection
-        collection.insert(parsedJSON[i], function (err, doc) {
+        collection.insert(current_object, function (err, doc) {
 
           // Decrement the count in each callback of the insert statement
           count--;
@@ -78,12 +83,13 @@ function seed_db(list, callback) {
           }
 
           // Once all the records have been inserted, call the callback
-          if(count == 0) {
+          if (count == 0) {
             return callback();
           }
         });
       })
-    }
+      //}
+    });
   });
 }
 
