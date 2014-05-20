@@ -1,6 +1,6 @@
 {
   "name": "node-mongo-seeds",
-  "version": "1.0.9",
+  "version": "1.0.12",
   "description": "A tool to populate a mongo db from json files",
   "repository": {
     "type": "git",
@@ -14,7 +14,7 @@
   "author": "Tom Caflisch <tomcaflisch@gmail.com> (http://allthingswebdesign.com)",
   "dependencies": {
     "optimist": "^0.6.1",
-    "monk": "*"
+    "q": "^1.0.1"
   },
   "main": "bin/seed",
   "bin": {
