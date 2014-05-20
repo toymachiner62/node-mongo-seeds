@@ -22,16 +22,16 @@ var argv = optimist
     .argv;
 */
 
-var monk = require('monk');
+var q = require('q');
+var pmongo = require('promised-mongo');
 // TODO - Somehow get the calling app root path, rather than doing ../../
 var parsedJSON = require(process.cwd()+"/../../seed.json");
 // TODO - Somehow get the calling app root path, rather than doing ../../
 
 
 var dir = process.cwd()+'/../../seeds';
-var db = monk('mongodb://'+parsedJSON.db);
+var db = pmongo('mongodb://'+parsedJSON.db);
 var fs = require('fs'); // Used to get all the files in a directory
-var count = 0;  // Counter variable used to call the callback after all the mongo inserts have completed
 
 console.log('dir = '+dir);
 
@@ -39,61 +39,86 @@ console.log('dir = '+dir);
 var list = fs.readdirSync(dir);
 
 // Call the method to actually seed the db and when it's complete, close the connection to mongo
-seed_db(list, function() {
-  db.close();
+// Call the method to actually seed the db and when it's complete, close the connection to mongo
+seed_db(list).done(function () {
+    db.close();
 });
 
 /**
- * Loops through all the .json files in ./seeds and remove all the records from the collection,
- *    then insert each of the records from the seed files themselves.
+ * Loops through all the .json files in ./seeds and removes all the records
  *
- * @param list      - The list of all the files
+ * @param list
  * @param callback
  */
 function seed_db(list, callback) {
 
-  // For every file in the list
-  list.forEach(function (file) {
+    var removeOperations = [];
+    var returnPromise = q.defer();
 
-    // Set the filename without the extension to the variable collection_name
-    var collection_name = file.split(".")[0];
+    // For every file in the list
+    list.forEach(function (file) {
 
-    // Parses the contents of the current .json file
-    var parsedJSON = require(dir + '/' + file);
+        // Set the filename without the extension to the variable collection_name
+        var collection_name = file.split(".")[0];
 
-    // Add the number of records to the count variable
-    count += parsedJSON.length;
+        // Parses the contents of the current .json file
+        var parsedJSON = require(dir + '/' + file);
 
-    // Loop through all the objects in the current .json file
-    parsedJSON.forEach(function(current_object) {
+        //Get collection to insert into
+        var collection = db.collection(collection_name);
 
-      var collection = db.get(collection_name);
+        //Queue up the "clear collection" promise
+        removeOperations.push(
+            collection.remove({})
+                .then(function () {
 
-      // Remove all records in the collection
-      collection.remove({}, function () {
+                    var insertPromises = [];
 
-        // Insert records into the collection
-        collection.insert(current_object, function (err, doc) {
+                    //Queue up an "insert" promise for each record to be inserted
+                    for (var i = 0; i < parsedJSON.length; i++) {
 
-          // Decrement the count in each callback of the insert statement
-          count--;
+                        insertPromises.push(
+                            collection
+                                .insert(parsedJSON[i])
+                                .fail(function (err) {
 
-          if (err) {
-            console.log(err);
-          }
+                                    //If insert fails...
+                                    console.log(err);
+                                }));
+                    }
 
-          // Once all the records have been inserted, call the callback
-          if (count == 0) {
-            return callback();
-          }
-        });
-      })
-      //}
+                    //The "clear collection" promise will resolve to the array of insert promises
+                    return insertPromises;
+                })
+                .fail(function (err) {
+
+                    //If clear collection fails...
+                    console.log(err);
+                })
+        );
     });
-  });
+
+    //Wait until all removes are either resolved or rejected
+    q.allSettled(removeOperations)
+        .spread(function () {
+
+            var allDone = [];
+
+            //Populate array to hold all "insert" promises (arguments will be an array of arrays, with the
+            //array values being the insert promises
+            for (var x = 0; x < arguments.length; x++) {
+
+                allDone = allDone.concat(arguments[x].value);
+            }
+
+            //Once all insert promises are either resolved or rejected, resolve the final promise
+            q.allSettled(allDone)
+                .done(function () {
+
+                    returnPromise.resolve();
+                });
+        });
+
+    //Return the deferred promise
+    return returnPromise.promise;
 }
-
-
-
-
-
