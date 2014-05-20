@@ -39,7 +39,6 @@ console.log('dir = '+dir);
 var list = fs.readdirSync(dir);
 
 // Call the method to actually seed the db and when it's complete, close the connection to mongo
-// Call the method to actually seed the db and when it's complete, close the connection to mongo
 seed_db(list).done(function () {
     db.close();
 });
