@@ -1,7 +1,7 @@
 node-mongo-seeds
 ================
 
-A tool to quickly populate your mongo db from a set of .json files
+A tool to quickly populate your mongo db from a set of .json files. The concept is very similar to Ruby on Rails idea of seeding a database. This allows a new developer to pull down the source code for a project (which contains .json files to populate their mongodb with) and run a command and bingo!! database populated and ready to rock.
 
 ## Usage
 
