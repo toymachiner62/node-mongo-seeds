@@ -33,7 +33,7 @@ var dir = process.cwd()+'/../../seeds';
 var db = pmongo('mongodb://'+parsedJSON.db);
 var fs = require('fs'); // Used to get all the files in a directory
 
-console.log('dir = '+dir);
+console.log('Seeding files from '+dir);
 
 // Read all the files in the ./seeds folder
 var list = fs.readdirSync(dir);
@@ -60,8 +60,15 @@ function seed_db(list, callback) {
         // Set the filename without the extension to the variable collection_name
         var collection_name = file.split(".")[0];
 
+        console.log('Seeding collection '+collection_name);
+
         // Parses the contents of the current .json file
         var parsedJSON = require(dir + '/' + file);
+
+        // If the seed file is NOT an array
+        if(!parsedJSON.isArray) {
+          returnPromise.reject(new Error('Seed file '+collection_name+' does start with an Array'))
+        }
 
         //Get collection to insert into
         var collection = db.collection(collection_name);
