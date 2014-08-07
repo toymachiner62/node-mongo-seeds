@@ -35,13 +35,14 @@ var fs = require('fs'); // Used to get all the files in a directory
 var util = require('util');
 var path = require('path');
 
-console.log('Seeding files from directory '+path.resolve(dir));
+
 
 // Read all the files in the ./seeds folder
 var list = fs.readdirSync(dir);
 
 // Call the method to actually seed the db and when it's complete, close the connection to mongo
 seed_db(list).done(function () {
+  console.log('----------------------');
   console.log('All done. Go play!');
   db.close();
 });
@@ -53,6 +54,9 @@ seed_db(list).done(function () {
  * @param callback
  */
 function seed_db(list, callback) {
+
+  console.log('Seeding files from directory '+path.resolve(dir));
+  console.log('----------------------');
 
   var removeOperations = [];
   var returnPromise = q.defer();
