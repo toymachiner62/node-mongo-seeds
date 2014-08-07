@@ -32,6 +32,7 @@ var parsedJSON = require(process.cwd()+"/../../seed.json");
 var dir = process.cwd()+'/../../seeds';
 var db = pmongo('mongodb://'+parsedJSON.db);
 var fs = require('fs'); // Used to get all the files in a directory
+var util = require('util');
 
 console.log('Seeding files from '+dir);
 
@@ -66,7 +67,7 @@ function seed_db(list, callback) {
         var parsedJSON = require(dir + '/' + file);
 
         // If the seed file is NOT an array
-        if(!parsedJSON.isArray) {
+        if(!util.isArray(parsedJSON)) {
 
           console.log('NOT ARRAY');
           returnPromise.reject(new Error('Seed file '+collection_name+' does not start with an Array'));
