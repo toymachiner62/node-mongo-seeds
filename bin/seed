@@ -67,9 +67,9 @@ function seed_db(list, callback) {
 
         // If the seed file is NOT an array
         if(!parsedJSON.isArray) {
-          console.log(file);
-          //console.log(parsedJSON);
-          returnPromise.reject('Seed file '+collection_name+' does not start with an Array');
+
+          console.log('NOT ARRAY');
+          returnPromise.reject(new Error('Seed file '+collection_name+' does not start with an Array'));
         }
 
         //Get collection to insert into
