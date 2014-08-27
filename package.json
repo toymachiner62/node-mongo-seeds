@@ -12,19 +12,26 @@
     "seed"
   ],
   "author": "Tom Caflisch <tomcaflisch@gmail.com> (http://allthingswebdesign.com)",
+  "main": "./lib/seed.js",
+  "bin": {
+    "seed": "./bin/seed",
+    "setup": "./bin/create_config_file"
+  },
+  "scripts": {
+    "setup": "node ./bin/create_config_file",
+    "seed": "node ./bin/seed"
+  },
+  "directories" : {
+    "bin": "./bin"
+  },
+  "preferGlobal": "true",
+  "license": "MIT",
   "dependencies": {
     "optimist": "^0.6.1",
     "q": "^1.0.1",
     "promised-mongo": "^0.11.1"
   },
-  "main": "bin/seed",
-  "bin": {
-    "seed": "bin/seed"
-  },
-  "scripts": {
-    "setup": "node bin/create_config_file",
-    "seed": "node bin/seed"
-  },
-  "preferGlobal": "true",
-  "license": "MIT"
+  "devDependencies": {
+    "chai": "^1.9.1"
+  }
 }
