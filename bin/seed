@@ -1,9 +1,7 @@
 #!/usr/local/bin/node
 
-
-console.log('in it');
 var path = require('path');
 var fs = require('fs');
 var lib = path.join(path.dirname(fs.realpathSync(__filename)), '../lib');
-console.log(lib);
+
 require(lib+'/seed.js').convert();
