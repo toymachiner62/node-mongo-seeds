@@ -1,4 +1,4 @@
-#!/usr/local/bin/env node
+#!/usr/local/bin/node
 
 
 console.log('in it');

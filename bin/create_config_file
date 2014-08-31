@@ -1,10 +1,12 @@
-#!/usr/local/bin/env node
+#!/usr/local/bin/node
 
 console.log('in config');
 
 var path = require('path');
 var fs = require('fs');
 var lib = path.join(path.dirname(fs.realpathSync(__filename)), '../lib');
+
+console.log(lib);
 
 require(lib+'/create_config_file.js').convert();
 

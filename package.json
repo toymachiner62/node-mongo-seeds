@@ -21,7 +21,7 @@
     "setup": "node ./bin/create_config_file",
     "seed": "node ./bin/seed"
   },
-  "directories" : {
+  "directories": {
     "bin": "./bin"
   },
   "preferGlobal": "true",
@@ -29,7 +29,9 @@
   "dependencies": {
     "optimist": "^0.6.1",
     "q": "^1.0.1",
-    "promised-mongo": "^0.11.1"
+    "promised-mongo": "^0.11.1",
+    "underscore": "^1.7.0",
+    "errno": "^0.1.1"
   },
   "devDependencies": {
     "chai": "^1.9.1"
