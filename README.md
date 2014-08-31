@@ -16,4 +16,11 @@ A tool to quickly populate your mongo db from a set of .json files. The concept 
 
 **Note**: Every time you run `$ seed` it will blow away all the data in your collections and re-populate them with whatever is in your `/seeds` directory.
 
+##Contributing
+
+1. Clone project and run `npm install -g ./` from project root
+2. Add feature(s) 
+3. Add tests for it
+4. Submit pull request
+
 Enjoy!
