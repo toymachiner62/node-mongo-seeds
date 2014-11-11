@@ -13,7 +13,6 @@ describe('run seed-setup', function () {
     child = exec('cd test/temp; node ../../bin/setup', function(err, stdout, stderr) {
 			expect(err).to.be.null;
 			expect(path.resolve('./test/temp/seed.json')).to.be.a.file();
-			console.log(stdout);
       done();
     });
   });
@@ -23,10 +22,8 @@ describe('run seed-setup', function () {
 describe('run seed', function () {
 
   it('fails with no seeds folder', function (done) {
-		child = exec('cd test/temp; node ../../bin/seed', function(err, stdout, stderr) {
+		child = exec('cd test/temp; node ../../bin/seed', function (err, stdout, stderr) {
 			expect(err).to.be.null;
-			//expect(path.resolve('./test/temp/seed.json')).to.be.a.file();
-			console.log(stdout);
 			// Need to assert something here
 			done();
 		});
@@ -35,7 +32,6 @@ describe('run seed', function () {
   it('runs successfully with a seeds folder', function (done) {
 		child = exec('cd test/temp; node ../../bin/seed', function(err, stdout, stderr) {
 			expect(err).to.be.null;
-			console.log(stdout);
 			// Need to assert something else here
 			done();
 		})

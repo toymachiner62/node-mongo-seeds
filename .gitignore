@@ -26,3 +26,6 @@ node_modules
 
 # web_storm project files
 .idea
+
+# This file gets generated when seed-setup is run
+test/temp/seed.json
