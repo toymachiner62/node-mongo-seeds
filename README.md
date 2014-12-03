@@ -7,14 +7,18 @@ A tool to quickly populate your mongo db from a set of .json files. The concept 
 ## Usage
 
 - Run `$ npm install -g node-mongo-seeds`
-- Run `$ seed-setup` to generate a `seed.json` file
-- Replace `"localhost/CHANGE_ME_TO_YOUR_DB_NAME"` with the path to your mongodb in your brand new seed.json file
+- Run `$ seed-setup` from the root of your project to generate a `seed.json` file
+- Replace `"localhost/LOCAL_DB_NAME"` with the path to your mongodb in your brand new seed.json file
 - Create a `/seeds` folder in your project root and put `.json` files in there.
 		The name of the file is going to be the collection name in mongo and the contents
 		of the file will be populated into that mongo collection.
 - Run `$ seed` to seed your mongodb with all your data from your `/seeds` folder.
 
 **Note**: Every time you run `$ seed` it will blow away all the data in your collections and re-populate them with whatever is in your `/seeds` directory.
+
+### Separate databases per NODE_ENV
+
+You can have separate databases for each NODE_ENV that you are using. Just a put a line in seed.json for each NODE_ENV that you are going to use. It defaults to "undefined", "dev", and "prod" but can be changed to whatever.
 
 ##Contributing
 
