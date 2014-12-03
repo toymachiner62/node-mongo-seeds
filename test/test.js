@@ -29,12 +29,37 @@ describe('run seed', function () {
 		});
   });
 
-  it('runs successfully with a seeds folder', function (done) {
-		child = exec('cd test/temp; node ../../bin/seed', function(err, stdout, stderr) {
-			expect(err).to.be.null;
-			// Need to assert something else here
-			done();
-		})
-  });
+	describe('with no NODE_ENV set', function() {
+
+		it('runs successfully with a seeds folder', function (done) {
+			child = exec('cd test/temp; node ../../bin/seed', function(err, stdout, stderr) {
+				expect(err).to.be.null;
+				// Need to assert that the correct database was created successfully
+				done();
+			});
+		});
+	});
+
+	describe('with NODE_ENV set and with a matching key in seed.json', function() {
+
+		it('runs successfully with a seeds folder', function (done) {
+			child = exec('cd test/temp; NODE_ENV=dev node ../../bin/seed', function(err, stdout, stderr) {
+				expect(err).to.be.null;
+				// Need to assert that the correct database was created successfully
+				done();
+			});
+		});
+	});
+
+	describe('with NODE_ENV set and no matching key in seed.json', function() {
+
+		it('errors out with a reason why', function (done) {
+			child = exec('cd test/temp; NODE_ENV=test node ../../bin/seed', function(err, stdout, stderr) {
+				expect(err).to.be.null;
+				expect(stdout).to.match(/No key exists in seed.json for the passed in NODE_ENV/);
+				done();
+			});
+		});
+	});
 
 });
