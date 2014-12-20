@@ -26,7 +26,7 @@ describe('run seed', function () {
 		child = exec('cd test/invalid; node ../../bin/seed', function (err, stdout, stderr) {
 			expect(err).to.be.null;
 			// Give a reason why
-			expect(stdout).to.match(/No seeds folder found/);
+			expect(stdout).to.match(/Error/);
 			done();
 		});
 	});
