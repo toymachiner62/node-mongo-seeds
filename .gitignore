@@ -27,5 +27,8 @@ node_modules
 # web_storm project files
 .idea
 
+# OSX files
+.DS_Store
+
 # This file gets generated when seed-setup is run
 test/temp/seed.json
