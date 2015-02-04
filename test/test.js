@@ -56,13 +56,29 @@ describe('run seed', function () {
 
 	describe('with NODE_ENV set and with a matching key in seed.json', function() {
 
-		it('runs successfully with a seeds folder', function (done) {
-			child = exec('cd test/valid; NODE_ENV=dev node ../../bin/seed', function(err, stdout, stderr) {
-				expect(err).to.be.null;
-				// This is a cheap way to check that we did something
-				expect(stdout).to.match(/Seeding collection testing/);
-				expect(stdout).to.match(/All done. Go play!/);
-				done();
+		describe('not specifying the mongodb protocol', function() {
+
+			it('runs successfully with a seeds folder', function (done) {
+				child = exec('cd test/protocol; NODE_ENV=dev node ../../bin/seed', function(err, stdout, stderr) {
+					expect(err).to.be.null;
+					// This is a cheap way to check that we did something
+					expect(stdout).to.match(/Seeding collection testing/);
+					expect(stdout).to.match(/All done. Go play!/);
+					done();
+				});
+			});
+		});
+
+		describe('explicitly specifying the mongodb protocol', function() {
+			
+			it('runs successfully with a seeds folder', function (done) {
+				child = exec('cd test/valid; NODE_ENV=dev node ../../bin/seed', function(err, stdout, stderr) {
+					expect(err).to.be.null;
+					// This is a cheap way to check that we did something
+					expect(stdout).to.match(/Seeding collection testing/);
+					expect(stdout).to.match(/All done. Go play!/);
+					done();
+				});
 			});
 		});
 	});
