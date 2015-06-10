@@ -27,4 +27,11 @@ You can have separate databases for each NODE_ENV that you are using. Just a put
 3. Add tests for it
 4. Submit pull request
 
+### Running Tests
+
+To run the tests, follow these instructions. Note: the process is a little odd to have to cd into ./test and do an npm install and then cd to project root
+
+1. From project root, `$ cd ./test` and `$ npm install`
+2. `$ cd ..` (Back to project root) and `$ npm test`
+
 Enjoy!
