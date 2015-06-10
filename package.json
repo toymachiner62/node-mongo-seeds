@@ -1,6 +1,6 @@
 {
   "name": "node-mongo-seeds",
-  "version": "2.2.3",
+  "version": "2.2.4",
   "description": "A tool to populate a mongo db from json files",
   "repository": {
     "type": "git",
