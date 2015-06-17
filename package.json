@@ -29,7 +29,7 @@
   "license": "MIT",
   "dependencies": {
     "errno": "^0.1.1",
-    "mongodb": "^1.4.19",
+    "mongodb": "~1.4",
     "optimist": "^0.6.1",
     "q": "^1.0.1",
     "lodash": "^3.1.0"
