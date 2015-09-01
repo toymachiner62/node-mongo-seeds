@@ -81,7 +81,8 @@ describe('run seed', function () {
         });
       });
     });
-});
+
+  });
 
   describe('with NODE_ENV set and no matching key in seed.json', function() {
 

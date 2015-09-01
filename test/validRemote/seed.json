@@ -1,0 +1,5 @@
+{
+  "undefined": "mongodb://toymachiner62:panther89@ds035673.mongolab.com:35673/mongo-seeds",
+  "dev": "localhost/DEV_DB_NAME",
+  "prod": "localhost/PROD_DB_NAME"
+}
