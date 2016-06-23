@@ -1,0 +1,20 @@
+[
+  {
+    "signup_date": {
+      "$date": "2016-06-23T16:55:15.853Z"
+    },
+    "email": "testing@example.com",
+    "username": "throughballs11",
+    "firstname": "Mesut",
+    "lastname": "Ozil"
+  },
+  {
+    "signup_date": {
+      "$date": "2016-06-23T16:55:15.853Z"
+    },
+    "email": "testing@example.com",
+    "username": "chilean_wonder7",
+    "firstname": "Alexis",
+    "lastname": "Sanchez"
+  }
+]
