@@ -90,7 +90,7 @@ describe('run seed', function () {
       child = exec('cd test/validExtended; NODE_ENV=dev node ../../bin/seed', function(err, stdout, stderr) {
           expect(err).to.be.null;
           // This is a cheap way to check that we did something
-          expect(stdout).to.match(/Seeding collection testing/);
+          expect(stdout).to.match(/Seeding collection extended/);
           expect(stdout).to.match(/All done. Go play!/);
           done();
       });
