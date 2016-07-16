@@ -12,6 +12,7 @@
 - Create a `/seeds` folder in your project root and put `.json` files in there.
 		The name of the file is going to be the collection name in mongo and the contents
 		of the file will be populated into that mongo collection.
+	- Note that this package supports the [mongo-extended-json syntax](https://docs.mongodb.com/manual/reference/mongodb-extended-json/)
 - Run `$ seed` to seed your mongodb with all your data from your `/seeds` folder.
 
 **Note**: Every time you run `$ seed` it will blow away all the data in your collections and re-populate them with whatever is in your `/seeds` directory.
@@ -29,7 +30,8 @@ You can have separate databases for each NODE_ENV that you are using. Just a put
 
 ### Running Tests
 
-To run the tests, follow these instructions.	
+To run the tests, follow these instructions.
+
 1. Start mongod process		
 2. From project root `$ npm install`	
 3. Run test command `$ npm test`
