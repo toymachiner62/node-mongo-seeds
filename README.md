@@ -21,6 +21,10 @@
 
 You can have separate databases for each NODE_ENV that you are using. Just a put a line in seed.json for each `NODE_ENV` that you are going to use. It defaults to `undefined`, `dev`, and `prod` but can be changed to whatever.
 
+### Database selection with DB_URI environment variable
+
+You can run seed passing a DB_URI environment to overrite the values in the seed.json, this allows extra flexibility.
+
 ## Contributing
 
 1. Clone project and run `npm install -g ./` from project root
