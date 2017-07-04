@@ -84,6 +84,18 @@ describe('run seed', function () {
 
   });
 
+  describe('with DB_URI', function() {
+    it('runs successfully with a seeds folder', function (done) {
+      child = exec('cd test/protocol; NODE_ENV=none DB_URI=mongodb://localhost/seeds node ../../bin/seed', function(err, stdout, stderr) {
+        expect(err).to.be.null;
+        // This is a cheap way to check that we did something
+        expect(stdout).to.match(/Seeding collection testing/);
+        expect(stdout).to.match(/All done. Go play!/);
+        done();
+      });
+    });
+  });
+
   describe('using MongoDB Extended JSON format', function() {
 
     it('tests $date format', function (done) {
