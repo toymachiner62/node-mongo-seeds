@@ -87,8 +87,9 @@ describe('run seed', function () {
   describe('using MongoDB Extended JSON format', function() {
 
     it('tests $date format', function (done) {
-      child = exec('cd test/validExtended; NODE_ENV=dev node ../../bin/seed', function(err, stdout, stderr) {
+      child = exec('cd test/validExtended; node ../../bin/seed', function(err, stdout, stderr) {
           expect(err).to.be.null;
+
           // This is a cheap way to check that we did something
           expect(stdout).to.match(/Seeding collection extended/);
           expect(stdout).to.match(/All done. Go play!/);
