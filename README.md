@@ -1,10 +1,12 @@
-# node-mongo-seeds 
+# node-mongo-seeds
 [![Build Status](https://travis-ci.org/toymachiner62/node-mongo-seeds.svg?branch=master)](https://travis-ci.org/toymachiner62/node-mongo-seeds)
 [![Code Climate](https://codeclimate.com/github/toymachiner62/node-mongo-seeds/badges/gpa.svg)](https://codeclimate.com/github/toymachiner62/node-mongo-seeds)
 
 > A tool to quickly populate your mongo db from a set of .json files. The concept is very similar to Ruby on Rails idea of seeding a database. This allows a new developer to pull down the source code for a project (which contains .json files to populate their mongodb with) and run a command and bingo!! database populated and ready to rock.
 
 ## Usage
+
+![usage.gif](./usage.gif)
 
 - Run `$ npm install -g node-mongo-seeds`
 - Run `$ seed-setup` from the root of your project to generate a `seed.json` file
@@ -24,7 +26,7 @@ You can have separate databases for each NODE_ENV that you are using. Just a put
 ## Contributing
 
 1. Clone project and run `npm install -g ./` from project root
-2. Add feature(s) 
+2. Add feature(s)
 3. Add tests for it
 4. Submit pull request
 
@@ -33,7 +35,7 @@ You can have separate databases for each NODE_ENV that you are using. Just a put
 To run the tests, follow these instructions.
 
 1. Start mongod process		
-2. From project root `$ npm install`	
+2. From project root `$ npm install`
 3. Run test command `$ npm test`
 
 Enjoy!

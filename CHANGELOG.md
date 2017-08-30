@@ -7,7 +7,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ## [Unreleased]
 
 ### Added
-- Added changelog file
-- Added test with $oid example
+- Changelog file
+- Test with $oid example
+- Usage gif to readme
 
 [Unreleased]: <link here>
