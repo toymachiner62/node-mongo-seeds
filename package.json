@@ -29,7 +29,7 @@
   "license": "MIT",
   "dependencies": {
     "errno": "^0.1.4",
-    "json2mongo": "^1.1.0",
+    "json2mongo": "^2.0.0",
     "lodash": "^3.1.0",
     "mongodb": "~2.2.23",
     "optimist": "^0.6.1",
