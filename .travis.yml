@@ -1,9 +1,14 @@
 language: node_js
 node_js:
-  - "0.11"
-  - "0.10"
+  - "node"
+  - "iojs"
+  - "lts/*"
+  - "8"
+  - "7"
+  - "6"
+  - "6"
+  - "4"
 services: mongodb
 addons:
   code_climate:
-    repo_token: 0bc1060eb2c8897c6d192e530449d2a6ab83338bbe3e94510531bf010c05b562 
-
+    repo_token: 0bc1060eb2c8897c6d192e530449d2a6ab83338bbe3e94510531bf010c05b562
