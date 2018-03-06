@@ -1,4 +1,4 @@
-[
+module.exports = [
   {
     "name": "the first name",
     "description": "my first description"
@@ -7,4 +7,4 @@
     "name": "the second name",
     "description": "my second description"
   }
-]
+];

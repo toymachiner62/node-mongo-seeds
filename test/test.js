@@ -43,8 +43,13 @@ describe('run seed', function () {
 
   describe('with no NODE_ENV set', function() {
 
-    it('runs successfully with a seeds folder', function (done) {
+    it.only('runs successfully with a seeds folder', function (done) {
       child = exec('cd test/valid; node ../../bin/seed', function(err, stdout, stderr) {
+
+        console.log(err)
+        console.log(stdout)
+
+
         expect(err).to.be.null;
         // This is a cheap way to check that we did something
         expect(stdout).to.match(/Seeding collection testing/);
