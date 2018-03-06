@@ -9,7 +9,7 @@
 ![usage.gif](./usage.gif)
 
 - Run `$ npm install -g node-mongo-seeds`
-- Run `$ seed-setup` from the root of your project to generate a `seed.json` file
+- Run `$ seed-setup` from the root of your project to generate a `seed.js` file
 - Replace `"localhost/LOCAL_DB_NAME"` with the path to your mongodb in your brand new seed.json file
 - Create a `/seeds` folder in your project root and put `.json` files or `.js` files which **export a json object** in there.
 		The name of the file is going to be the collection name in mongo and the contents
