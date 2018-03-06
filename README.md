@@ -6,8 +6,6 @@
 
 ## Usage
 
-![usage.gif](./usage.gif)
-
 - Run `$ npm install -g node-mongo-seeds`
 - Run `$ seed-setup` from the root of your project to generate a `seed.js` file
 - Replace `"localhost/LOCAL_DB_NAME"` with the path to your mongodb in your brand new seed.json file
