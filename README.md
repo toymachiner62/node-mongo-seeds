@@ -19,7 +19,7 @@
 
 ### Separate databases per NODE_ENV
 
-You can have separate databases for each NODE_ENV that you are using. Just a put a line in seed.json for each `NODE_ENV` that you are going to use. It defaults to `undefined`, `dev`, and `prod` but can be changed to whatever.
+You can have separate databases for each NODE_ENV that you are using. Just a put a line in `seed.js` for each `NODE_ENV` that you are going to use. It defaults to `undefined`, `dev`, and `prod` but can be changed to whatever.
 
 ## Contributing
 
