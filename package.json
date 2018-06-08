@@ -28,11 +28,10 @@
   "preferGlobal": "true",
   "license": "MIT",
   "dependencies": {
-    "errno": "^0.1.4",
+    "errno": "^0.1.7",
     "json2mongo": "^2.0.0",
-    "lodash": "^3.1.0",
-    "mongodb": "~2.2.23",
-    "optimist": "^0.6.1",
+    "lodash": "^4.17.10",
+    "mongodb": "^3.0.10",
     "q": "^1.4.1"
   },
   "devDependencies": {
