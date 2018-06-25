@@ -31,8 +31,7 @@
     "errno": "^0.1.7",
     "json2mongo": "^2.0.0",
     "lodash": "^4.17.10",
-    "mongodb": "^3.0.10",
-    "q": "^1.4.1"
+    "mongodb": "^3.0.10"
   },
   "devDependencies": {
     "chai": "^4.1.2",
