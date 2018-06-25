@@ -38,13 +38,13 @@ Seed your mongodb with all your data from your `/seeds` folder.
 	```sh
 	$ seed
 	``` 
-
-Available options
 	
 	```sh
+	$ seed --help
+	
 	Usage: seed [options]
 
-	Options:
+  Options:
 
     -s, --seeds-folder [folder]  Use seeds folder [folder]
     -h, --help                   output usage information
