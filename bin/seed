@@ -1,7 +1,25 @@
 #!/usr/bin/env node
 
-var path = require('path');
-var fs = require('fs');
-var lib = path.join(path.dirname(fs.realpathSync(__filename)), '../lib');
+const path = require('path');
+const fs = require('fs');
+const _ = require('lodash')
+const program = require('commander');
+const lib = path.join(path.dirname(fs.realpathSync(__filename)), '../lib');
+const currentDir = process.cwd()
+const seeder = require(path.join(lib, 'seed.js'))
 
-require(lib + '/seed.js').seed();
+program
+  .option('-s, --seeds-folder [folder]', 'Use seeds folder [folder]')
+  .parse(process.argv)
+
+// If a seeds folder was not passed in, set it to pwd/seeds
+if(!_.isString(program.seedsFolder)) {
+  program.seedsFolder = path.join(process.cwd(), 'seeds')
+}
+
+// If a relative path was passed in, set the absolute path
+if(!path.isAbsolute(program.seedsFolder)) {
+  program.seedsFolder = path.join(process.cwd(), program.seedsFolder)
+}
+
+seeder.seed(program.seedsFolder);

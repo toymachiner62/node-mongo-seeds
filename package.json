@@ -11,13 +11,14 @@
     "mongo",
     "seed"
   ],
-  "author": "Tom Caflisch <tomcaflisch@gmail.com> (http://allthingswebdesign.com)",
+  "author": "Tom Caflisch <tomcaflisch@gmail.com>",
   "main": "./lib/seed.js",
   "bin": {
     "seed": "./bin/seed",
     "seed-setup": "./bin/setup"
   },
   "scripts": {
+    "test-coverage": "nyc --reporter=lcov npm run test",
     "test": "mocha --timeout 5000",
     "setup": "node ./bin/setup",
     "seed": "node ./bin/seed"
@@ -28,6 +29,7 @@
   "preferGlobal": "true",
   "license": "MIT",
   "dependencies": {
+    "commander": "^2.15.1",
     "errno": "^0.1.7",
     "json2mongo": "^2.0.0",
     "lodash": "^4.17.10",
