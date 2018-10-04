@@ -8,7 +8,6 @@ node_js:
   - "7"
   - "6"
   - "6"
-  - "4"
 services: mongodb
 addons:
   code_climate:

@@ -29,6 +29,9 @@
   },
   "preferGlobal": "true",
   "license": "MIT",
+  "engines": {
+    "node": ">=6"
+  },
   "dependencies": {
     "commander": "^2.15.1",
     "errno": "^0.1.7",
