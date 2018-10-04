@@ -1,8 +1,8 @@
 # node-mongo-seeds
 [![Build Status](https://travis-ci.org/toymachiner62/node-mongo-seeds.svg?branch=master)](https://travis-ci.org/toymachiner62/node-mongo-seeds)
 [![Code Climate](https://codeclimate.com/github/toymachiner62/node-mongo-seeds/badges/gpa.svg)](https://codeclimate.com/github/toymachiner62/node-mongo-seeds)
-[![Coverage Status](https://coveralls.io/repos/github/toymachiner62/node-mongo-seeds/badge.svg?branch=master)](https://coveralls.io/github/toymachiner62/node-mongo-seeds?branch=master)
-[![BCH compliance](https://bettercodehub.com/edge/badge/toymachiner62/node-mongo-seeds?branch=master)](https://bettercodehub.com/)
+[![Test Coverage](https://api.codeclimate.com/v1/badges/0c613fd309e01cd2a790/test_coverage)](https://codeclimate.com/github/toymachiner62/node-mongo-seeds/test_coverage)
+
 
 > A tool to quickly populate your mongo db from a set of .json files. The concept is very similar to Ruby on Rails idea of seeding a database. This allows a new developer to pull down the source code for a project (which contains .json files to populate their mongodb with) and run a command and bingo!! database populated and ready to rock.
 
