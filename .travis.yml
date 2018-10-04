@@ -13,3 +13,16 @@ services: mongodb
 addons:
   code_climate:
     repo_token: 0bc1060eb2c8897c6d192e530449d2a6ab83338bbe3e94510531bf010c05b562
+
+env:
+  global:
+    CC_TEST_REPORTER_ID=33fac942f5f68af83b2c5b7e19accc457443c420d90efaa55c7ee2a28ebb557d
+
+before_script:
+  - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
+  - chmod +x ./cc-test-reporter
+  - ./cc-test-reporter before-build
+script:
+  - npm run test-coverage
+after_script:
+  - ./cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT

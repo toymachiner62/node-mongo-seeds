@@ -19,6 +19,7 @@
   },
   "scripts": {
     "test-coverage": "nyc --reporter=lcov npm run test",
+    "test-spec": "nyc --reporter=text npm run test",
     "test": "mocha --timeout 5000",
     "setup": "node ./bin/setup",
     "seed": "node ./bin/seed"
@@ -38,6 +39,7 @@
   "devDependencies": {
     "chai": "^4.1.2",
     "chai-fs": "^2.0.0",
-    "mocha": "^5.2.0"
+    "mocha": "^5.2.0",
+    "nyc": "^13.0.1"
   }
 }
