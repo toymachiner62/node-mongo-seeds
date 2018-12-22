@@ -3,15 +3,10 @@ workflow "Build, Test, and Publish" {
   resolves = ["Publish"]
 }
 
-action "Build" {
-  uses = "actions/npm@master"
-  args = "install"
-}
-
 action "Test" {
-  needs = "Build"
   uses = "actions/npm@master"
   args = "test"
+  runs = "npm"
 }
 
 # Filter for a new tag
