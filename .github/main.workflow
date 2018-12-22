@@ -6,7 +6,6 @@ workflow "Build, Test, and Publish" {
 action "Test" {
   uses = "actions/npm@master"
   args = "test"
-  runs = "npm"
 }
 
 # Filter for a new tag
