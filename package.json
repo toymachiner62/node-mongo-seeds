@@ -35,14 +35,14 @@
   "dependencies": {
     "commander": "^2.15.1",
     "errno": "^0.1.7",
-    "json2mongo": "^2.0.0",
+    "json2mongo": "^0.1.2",
     "lodash": "^4.17.10",
     "mongodb": "^3.6.5"
   },
   "devDependencies": {
     "chai": "^4.1.2",
     "chai-fs": "^2.0.0",
-    "mocha": "^5.2.0",
-    "nyc": "^13.0.1"
+    "mocha": "^8.3.2",
+    "nyc": "^15.1.0"
   }
 }
